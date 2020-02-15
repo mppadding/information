@@ -1,21 +1,21 @@
 # Udev helpful commands
 
 ## List device attributes (and all parents attributes)
-```
+```sh
 udevadm info -a -n /dev/{device}
 ```
 
 keywords: ```udev; attributes; /dev/```
 
 ## Test rules for a device (without running anything)
-```
+```sh
 udevadm test $(udevadm info --query=path --name=/dev/{device}) 2>&1
 ```
 
 keywords: ```udev; symlink; test udev```
 
 ## List all devices by dev name and their corresponding real name
-```
+```sh
 for sysdevpath in $(find /sys/bus/usb/devices/usb*/ -name dev); do
     (
         syspath="${sysdevpath%/dev}"
