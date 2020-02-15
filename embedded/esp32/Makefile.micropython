@@ -1,0 +1,15 @@
+PORT=/dev/ttyUSB0
+
+.PHONY: flash
+
+all: flash reset
+
+flash:
+	@echo "Flashing..."
+	@rshell -p $(PORT) cp *.py /pyboard/
+	@echo "[OK]"
+
+reset:
+	@echo "Resetting..."
+	@rshell -p $(PORT) repl \~ import machine \~ machine.reset\(\) \~
+	@echo "[OK]"
