@@ -1,0 +1,16 @@
+###
+# Official Arduino
+###
+
+# Arduino UNO
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0043", GROUP="users", MODE="0666", SYMLINK+="avr-uno"
+
+###
+# Clone Arduino
+###
+
+# NANO
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", GROUP="users", MODE="0666", SYMLINK+="avr-nano"
+
+# Pro Micro (Recognized as Arduino Leonardo)
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="8036", GROUP="users", MODE="0666", SYMLINK+="avr-micro"
